@@ -1,0 +1,43 @@
+
+.page-content{
+    /* padding-left: 10px; */
+    /* padding-right: 20px; */
+    text-align: center;
+}
+
+.spacer {
+    padding: 0px 0px 8px 8px;
+}
+
+body {
+    text-align: center;
+}
+
+#g1 {
+    width:400px;
+    height:320px;
+    display: inline-block;
+    /* margin: 1em; */
+}
+
+#g2, #g3, #g4 {
+    width:100px; height:80px;
+    display: inline-block;
+    margin: 1em;
+}
+
+p {
+    display: block;
+    width: 450px;
+    margin: 2em auto;
+    text-align: left;
+}
+
+.wrapper {
+    /* position: absolute; */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+

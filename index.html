@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="theme-color" content="#9C27B0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="icon" type="image/png" href="image/cloud-icon-152.png" sizes=152x152> 
+	<link rel="icon" type="image/png" href="image/cloud-icon-192.png" sizes=192x192>
+	<title>Umidade</title>
+  	<link rel="stylesheet" href="css/style.css"/>
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-orange.min.css" />
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/raphael-2.1.4.min.js"></script>
+    <script src="js/justgage.js"></script>
+  	<script src="js/script.js"></script>
+</head>
+<body>
+	<!-- Always shows a header, even in smaller screens. -->
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	  <header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+		  <!-- Title -->
+		  <span class="mdl-layout-title">Umidade</span>
+		  <!-- Add spacer, to align navigation to the right -->
+		  <div class="mdl-layout-spacer"></div>
+		  <!-- Navigation. We hide it in small screens. -->
+		  <nav class="mdl-navigation mdl-layout--large-screen-only">
+		  </nav>
+		</div>
+	  </header>
+	  <div class="mdl-layout__drawer">
+		<span class="mdl-layout-title">About</span>
+		<nav class="mdl-navigation">
+		  <a class="mdl-navigation__link" href="https://joaofelipes.duckdns.org/">Author</a>
+		  <a class="mdl-navigation__link" href="https://github.com/joaofelipes/copy">Source Code</a>
+		</nav>
+	  </div>	  
+	  <main class="mdl-layout__content mdl-color--purple-50">
+		<div class="page-content">
+
+				<div class="wrapper">
+					 <div id="g1"></div>
+				</div>
+				
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id=btnday>
+  					-1 Dia
+				</button>
+
+				<span class="spacer"/>
+
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" id=btnhour>
+				    -1 hora 
+				</button>
+
+				<span class="spacer"/>
+
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnrefresh" name="btncopy">
+				  Refresh
+				</button>
+
+				<div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
+					<div class="mdl-snackbar__text"></div>
+					<button type="button" class="mdl-snackbar__action"></button>
+				</div>				
+
+		</div>
+	  </main>
+	</div>
+</body>
+</html>
+
+
