@@ -29,9 +29,9 @@ $(document).ready( function(){
 });
 
 function getHumidity(){
-    baseUrl =     "http://localhost:8080/"
-    queryString = "?exclude=minutely,hourly,daily,flags,alerts&lang=pt"
-    mylocation = [23.5287355,-46.842231];
+    baseUrl =     "proxy.php"
+    mylocation =  [23.5287355,-46.842231];
+    queryString = "&exclude=minutely,hourly,daily,flags,alerts&lang=pt"
     
     var now = new Date();
     Date.prototype.addHours= function(h){
@@ -41,13 +41,10 @@ function getHumidity(){
     
     if(this.id == "btnhour") {
         mylocation.push( Math.round((now.addHours(-1)).getTime() / 1000))
-        url = baseUrl + mylocation.join() + queryString
     } else if (this.id == "btnday") {
         mylocation.push( Math.round((now.addHours(-24)).getTime() / 1000))
-        url = baseUrl + mylocation.join() + queryString
-    } else {
-        url = baseUrl + mylocation.join() + queryString
     }
+    url = baseUrl + "?location=" + mylocation.join() + queryString
     $.ajax(url, {
         type: "GET",
         contentType: "application/json",
