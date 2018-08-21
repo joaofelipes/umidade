@@ -1,5 +1,14 @@
-var g1
-var humidity = getHumidity()
+var latLong = [23.5287355,-46.842231];
+navigator.geolocation.getCurrentPosition(function(position) {
+    // Get the coordinates of the current position.
+    latLong = [position.coords.latitude, position.coords.longitude];
+    localStorage.setItem("latLong", JSON.stringify(latLong));
+});
+var g1;
+var humidity = getHumidity();
+
+
+
 
 $(document).ready( function(){
       g1 = new JustGage({
@@ -28,11 +37,12 @@ $(document).ready( function(){
     });
 });
 
+
 function getHumidity(){
     baseUrl =     "proxy.php"
-    mylocation =  [23.5287355,-46.842231];
     queryString = "&exclude=minutely,hourly,daily,flags,alerts&lang=pt"
-    
+    latLong = JSON.parse(localStorage.getItem("latLong"));
+
     var now = new Date();
     Date.prototype.addHours= function(h){
         this.setHours(this.getHours()+h);
@@ -40,11 +50,11 @@ function getHumidity(){
     }
     
     if(this.id == "btnhour") {
-        mylocation.push( Math.round((now.addHours(-1)).getTime() / 1000))
+        latLong.push( Math.round((now.addHours(-1)).getTime() / 1000))
     } else if (this.id == "btnday") {
-        mylocation.push( Math.round((now.addHours(-24)).getTime() / 1000))
+        latLong.push( Math.round((now.addHours(-24)).getTime() / 1000))
     }
-    url = baseUrl + "?location=" + mylocation.join() + queryString
+    url = baseUrl + "?location=" + latLong.join() + queryString
     $.ajax(url, {
         type: "GET",
         contentType: "application/json",
